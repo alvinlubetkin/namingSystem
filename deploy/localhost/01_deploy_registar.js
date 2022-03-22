@@ -4,7 +4,7 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
   const registry = await deployments.get("Registry");
   const registrar = await deploy("Registrar", {
     from: deployer,
-    args: [registry.address],
+    args: [registry.address, 5],
     log: true,
   });
   const role = await read("Registry", { log: true }, "REGISTRAR_ROLE");
